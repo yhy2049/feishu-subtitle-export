@@ -58,7 +58,7 @@ https://{domain}.feishu.cn/minutes/{object_token}
 
 例如：
 ```
-https://firstfilm.feishu.cn/minutes/obcn21c64u1ulu757d2z2u74
+https://{domain}.feishu.cn/minutes/{object_token}
 ```
 
 ### 第二步：打开开发者工具
@@ -155,7 +155,7 @@ https://firstfilm.feishu.cn/minutes/obcn21c64u1ulu757d2z2u74
 // 页面脚本中隐藏的数据（通过查看页面源代码或 Network 面板发现）
 {
   "web_vtt_url": "https://{domain}/minutes/api/subtitles/webvtt?object_token={token}",
-  "owner_info": { "user_name": "王颐童", ... },
+  "owner_info": { "user_name": "会议主持人", ... },
   "speaker_ai_status": 0,  // 0=未开启声纹识别
   "can_edit_speaker": false
 }
@@ -178,12 +178,12 @@ GET https://{domain}/minutes/api/subtitles/webvtt?object_token={object_token}
 
 ```javascript
 // ✅ 浏览器内 - 成功
-fetch('https://firstfilm.feishu.cn/minutes/api/subtitles/webvtt?object_token=xxx')
+fetch('https://{domain}.feishu.cn/minutes/api/subtitles/webvtt?object_token={token}')
   .then(r => r.text())
   .then(console.log);  // 返回 VTT 内容
 
 // ❌ 外部 curl - 失败
-curl "https://firstfilm.feishu.cn/minutes/api/subtitles/webvtt?object_token=xxx"
+curl "https://{domain}.feishu.cn/minutes/api/subtitles/webvtt?object_token={token}"
 # 返回: {"code": 99991667, "message": "session is invalid"}
 ```
 
@@ -356,15 +356,15 @@ hello
 python vtt_to_md.py subtitle.vtt output.md
 ```
 
-输出示例：
+### 输出示例：
 
 ```markdown
 # 飞书妙记字幕导出
 
-**会议标题：** 2026主动放映第一期线上论坛「大陆民间放映与空间实践」
-**会议时间：** 2026年4月16日 下午1:55
-**会议时长：** 1小时58分5秒
-**发言人：** 12人
+**会议标题：** {会议标题}
+**会议时间：** {会议时间}
+**会议时长：** {会议时长}
+**发言人：** {人数}人
 
 ---
 
