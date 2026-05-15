@@ -22,7 +22,7 @@
     if (!objectToken || objectToken.length < 10) {
       console.error('❌ 无法从 URL 中提取 object_token');
       console.log('请确认当前 URL 格式正确，例如:');
-      console.log('  https://xxx.feishu.cn/minutes/obcn21c64u1ulu757d2z2u74');
+      console.log('  https://{domain}.feishu.cn/minutes/{object_token}');
       return;
     }
     
