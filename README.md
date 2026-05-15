@@ -197,7 +197,7 @@ curl "https://{domain}.feishu.cn/minutes/api/subtitles/webvtt?object_token={toke
 
 **代码**：
 ```javascript
-fetch('https://firstfilm.feishu.cn/minutes/api/subtitles/webvtt?object_token=obcn21c64u1ulu757d2z2u74')
+fetch('https://{domain}.feishu.cn/minutes/api/subtitles/webvtt?object_token={token}')
   .then(r => r.text())
   .then(console.log);
 ```
@@ -247,7 +247,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 ...'
 }
 
-url = 'https://firstfilm.feishu.cn/minutes/api/subtitles/webvtt?object_token=xxx'
+url = 'https://{domain}.feishu.cn/minutes/api/subtitles/webvtt?object_token={token}'
 resp = requests.get(url, headers=headers)
 print(resp.text)
 ```
@@ -335,17 +335,17 @@ fetch(`https://${location.hostname}/minutes/api/subtitles/webvtt?object_token=${
 ```vtt
 WEBVTT - This file has cues.
 
-4
-00:04:54.441 --> 00:04:54.641
-hello
-
 1
-00:04:58.051 --> 00:04:58.291
-哦
+00:00:01.000 --> 00:00:03.000
+你好，欢迎参加本次会议。
 
 2
-00:04:58.731 --> 00:04:59.521
-那知道了
+00:00:03.500 --> 00:00:05.500
+大家下午好。
+
+3
+00:00:06.000 --> 00:00:08.000
+我们开始今天的讨论。
 ```
 
 ### 转换为 Markdown
